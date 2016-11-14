@@ -1,60 +1,40 @@
 package com.atom.impl;
 
+import com.atom.bean.LoginData;
 import com.atom.interfaces.Configuration;
 
 public class ConfigurationImpl implements Configuration {
-    @Override
-    public String getUserId() {
-        return null;
+
+    private LoginData loginData;
+    private String loginUrl;
+
+    public ConfigurationImpl(LoginData loginData) {
+        this.loginData = loginData;
     }
 
+
     @Override
-    public String getUserToken() {
-        return null;
+    public LoginData getLoginData() {
+        return loginData;
     }
 
     @Override
     public boolean isWarScenario() {
-        return false;
+        return TEST_WAR_SCENARIO;
     }
 
     @Override
     public boolean isCampainScenario() {
-        return false;
+        return !TEST_WAR_SCENARIO;
     }
 
     @Override
     public byte getNumberOfCampainGiftSelection() {
-        return 0;
+        return TEST_CAMPAIN_GIFT_NUMBER;
     }
 
     @Override
-    public String getLoginUrl() {
-        return null;
-    }
-
-    @Override
-    public String getStartUrl() {
-        return null;
-    }
-
-    @Override
-    public String getWarUrl() {
-        return null;
-    }
-
-    @Override
-    public String getRefreshUrl() {
-        return null;
-    }
-
-    @Override
-    public String getSelectWarUserUrl() {
-        return null;
-    }
-
-    @Override
-    public String getAttackWarUrl() {
-        return null;
+    public short getVersion() {
+        return Configuration.TEST_VERSION;
     }
 }
