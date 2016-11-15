@@ -8,4 +8,11 @@ public class RcConstants {
     public static final String WAR = "A07010";
     public static final String REFRESH = "A07200";
     public static final String WAR_SELECT = "A07000";
+
+    //Campaign
+    public static final String ADVENTURE_STATUS = "A17000";
+    public static final String ADVENTURE_SELECT = "A17001";
+    public static final String ADVENTURE_FORMATION_INFO = "A05021";
+    public static final String ADVENTURE_ATTACK = "A17002";
+    public static final String ADVENTURE_REWARD = "A17003";
 }
