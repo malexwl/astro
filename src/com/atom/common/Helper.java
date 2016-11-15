@@ -7,8 +7,8 @@ import java.util.Date;
 /**
  * Created by atom on 14.11.16.
  */
-public class Helpers {
-    private Helpers() {
+public class Helper {
+    private Helper() {
     }
 
     public static String getTimeXXX() {

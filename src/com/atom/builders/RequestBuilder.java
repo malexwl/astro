@@ -2,7 +2,7 @@ package com.atom.builders;
 
 import com.atom.bean.Pair;
 import com.atom.bean.RequestType;
-import com.atom.common.Helpers;
+import com.atom.common.Helper;
 import com.atom.common.NameConstants;
 import com.atom.common.RcConstants;
 import com.atom.common.StringUtills;
@@ -33,7 +33,7 @@ public class RequestBuilder {
                 params = buildCommonParams(rc);
         }
 
-        return Helpers.generateUrl(url, params);
+        return Helper.generateUrl(url, params);
     }
 
     private Pair[] buildReadParams(String rc) {
@@ -62,7 +62,7 @@ public class RequestBuilder {
     }
 
     private Pair getTimePair() {
-        return new Pair(NameConstants.P_TIME_XXX, Helpers.getTimeXXX());
+        return new Pair(NameConstants.P_TIME_XXX, Helper.getTimeXXX());
     }
 
     private Pair getRcPair(String rc) {
