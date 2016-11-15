@@ -4,6 +4,7 @@ import com.atom.ApplicationContext;
 import com.atom.bean.CriticalError;
 import com.atom.bean.json.login.LoginResponse;
 import com.atom.builders.RequestBuilder;
+import com.atom.common.NetworkHelper;
 import com.atom.common.RequestType;
 import com.atom.common.StringUtils;
 import com.atom.interfaces.Configuration;
@@ -25,7 +26,8 @@ public abstract class AbstractScenario {
     public abstract void doScenario();
 
     public void doLogin() {
-        String responseStr = requestBuilder.buildRequest(RequestType.LOGIN);
+        String url = requestBuilder.buildRequest(RequestType.LOGIN);
+        String responseStr = NetworkHelper.sendGetRequest(url);
         if (StringUtils.isNotEmpty(responseStr)) {
             LoginResponse loginResponse = gson.fromJson(responseStr, LoginResponse.class);
             try {
