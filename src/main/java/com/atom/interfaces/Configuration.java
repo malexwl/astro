@@ -28,12 +28,20 @@ public interface Configuration {
     //    http://game1.beginning.astronest.com/ck2glo_php//_content/war_info2.php?eid=323707&tid=131989&rc=A07000&key=3887&version=2500&time_xxx=1479138593
     String URL_SELECT_WAR = "http://game1.beginning.astronest.com/ck2glo_php//_content/war_info2.php";
 
-
+//Campaign
+//    http://game1.beginning.astronest.com/ck2glo_php/_content//adventure_status.php?eid=323707&rc=A17000&key=9345534&version=2500&time_xxx=1479243132
+//    http://game1.beginning.astronest.com/ck2glo_php/_content//adventure_start.php?eid=323707&area_id=109&rc=A17001&key=9345534&version=2500&time_xxx=1479243140
+//    http://game1.beginning.astronest.com/ck2glo_php//_content/formation_info.php?eid=323707&rc=A05021&key=9345534&version=2500&time_xxx=1479243085
+//    http://game1.beginning.astronest.com/ck2glo_php/_content//adventure_end.php?eid=323707&rc=A17002&key=9345534&version=2500&time_xxx=1479243103
+//    http://game1.beginning.astronest.com/ck2glo_php//_content/adventure_reward.php?eid=323707&r_id=1&rc=A17003&key=9345534&version=2500&time_xxx=1479243121
 
     boolean isWarScenario();
+
     boolean isCampaignScenario();
+
     byte getNumberOfCampaignGiftSelection();
 
     LoginData getLoginData();
+
     short getVersion();
 }
