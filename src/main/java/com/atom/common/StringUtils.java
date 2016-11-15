@@ -1,12 +1,9 @@
 package com.atom.common;
 
-/**
- * Created by atom on 14.11.16.
- */
-public class StringUtills {
+public class StringUtils {
     public static final String EMPTY = "";
 
-    private StringUtills() {
+    private StringUtils() {
     }
 
     public static boolean isEmpty(String s) {

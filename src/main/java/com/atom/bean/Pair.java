@@ -1,11 +1,8 @@
 package com.atom.bean;
 
-/**
- * Created by atom on 14.11.16.
- */
 public class Pair {
-    private String key;
-    private Object val;
+    private final String key;
+    private final Object val;
 
     public Pair(String key, Object val) {
         this.key = key;

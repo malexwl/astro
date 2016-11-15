@@ -1,8 +1,5 @@
 package com.atom.bean;
 
-/**
- * Created by atom on 15.11.16.
- */
 public class CriticalError  extends RuntimeException{
 
     public CriticalError() {

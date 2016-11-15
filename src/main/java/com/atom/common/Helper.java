@@ -4,16 +4,13 @@ import com.atom.bean.Pair;
 
 import java.util.Date;
 
-/**
- * Created by atom on 14.11.16.
- */
 public class Helper {
     private Helper() {
     }
 
     public static String getTimeXXX() {
         long time = new Date().getTime() / 1000;
-        return time + StringUtills.EMPTY;
+        return time + StringUtils.EMPTY;
     }
 
     public static String generateUrl(String startUrl, Pair... params) {

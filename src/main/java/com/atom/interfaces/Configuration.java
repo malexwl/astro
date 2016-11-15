@@ -1,12 +1,11 @@
 package com.atom.interfaces;
 
 import com.atom.bean.LoginData;
-import com.atom.common.RequestType;
 
 public interface Configuration {
 
     boolean TEST_WAR_SCENARIO = false;
-    byte TEST_CAMPAIN_GIFT_NUMBER = 1;
+    byte TEST_CAMPAIGN_GIFT_NUMBER = 1;
     byte TEST_LANG_NUMBER = 3;
     String TEST_USER_LOGIN_UUID = "14400589853300001";
     String TEST_USER_LOGIN_GID = "100765982588173617754";
@@ -32,8 +31,8 @@ public interface Configuration {
 
 
     boolean isWarScenario();
-    boolean isCampainScenario();
-    byte getNumberOfCampainGiftSelection();
+    boolean isCampaignScenario();
+    byte getNumberOfCampaignGiftSelection();
 
     LoginData getLoginData();
     short getVersion();

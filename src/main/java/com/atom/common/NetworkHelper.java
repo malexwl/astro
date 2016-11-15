@@ -19,7 +19,7 @@ public class NetworkHelper {
 
 
     public static String sendGetRequest(String url) {
-        String result = StringUtills.EMPTY;
+        String result = StringUtils.EMPTY;
         try {
             HttpURLConnection con = getHttpURLConnection(url);
             con.setRequestMethod(NameConstants.RQ_GET);
@@ -31,13 +31,13 @@ public class NetworkHelper {
             }
 //            String responseMessage = con.getResponseMessage();
         } catch (IOException e) {
-            processExceprion(e);
+            processException(e);
         }
         return result;
     }
 
     public static String sendPostRequest(String url, Pair... params) {
-        String result = StringUtills.EMPTY;
+        String result = StringUtils.EMPTY;
         try {
             HttpURLConnection con = getHttpURLConnection(url);
             con.setRequestMethod(NameConstants.RQ_POST);
@@ -64,7 +64,7 @@ public class NetworkHelper {
             }
 
         } catch (IOException e) {
-            processExceprion(e);
+            processException(e);
         }
         return result;
     }
@@ -88,9 +88,9 @@ public class NetworkHelper {
         return response;
     }
 
-    private static void processExceprion(Exception exc) {
+    private static void processException(Exception exc) {
         if (exc instanceof MalformedURLException) {
-            // TODO: 11/15/2016 process incerrect url
+            // TODO: 11/15/2016 process incorrect url
         } else if (exc instanceof IOException) {
             // TODO: 11/15/2016 process IO
         }

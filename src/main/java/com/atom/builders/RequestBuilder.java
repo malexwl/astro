@@ -5,15 +5,12 @@ import com.atom.common.RequestType;
 import com.atom.common.Helper;
 import com.atom.common.NameConstants;
 import com.atom.common.RcConstants;
-import com.atom.common.StringUtills;
+import com.atom.common.StringUtils;
 import com.atom.interfaces.Configuration;
 
-/**
- * Created by atom on 14.11.16.
- */
 public class RequestBuilder {
 
-    private Configuration configuration;
+    private final Configuration configuration;
 
     public RequestBuilder(Configuration configuration) {
         this.configuration = configuration;
@@ -102,8 +99,8 @@ public class RequestBuilder {
                 url = Configuration.URL_SELECT_WAR;
                 break;
             default:
-                rc = StringUtills.EMPTY;
-                url = StringUtills.EMPTY;
+                rc = StringUtils.EMPTY;
+                url = StringUtils.EMPTY;
         }
         return new Pair(rc, url);
     }
@@ -117,6 +114,6 @@ public class RequestBuilder {
     }
 
     private Pair getLangPair() {
-        return new Pair(NameConstants.P_LANG, configuration.TEST_LANG_NUMBER);
+        return new Pair(NameConstants.P_LANG, Configuration.TEST_LANG_NUMBER);
     }
 }

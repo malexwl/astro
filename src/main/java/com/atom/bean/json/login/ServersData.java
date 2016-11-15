@@ -2,9 +2,6 @@ package com.atom.bean.json.login;
 
 import java.util.List;
 
-/**
- * Created by atom on 15.11.16.
- */
 public class ServersData {
     private String key;
     private List<Server> server_list;
