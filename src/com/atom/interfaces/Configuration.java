@@ -1,6 +1,7 @@
 package com.atom.interfaces;
 
 import com.atom.bean.LoginData;
+import com.atom.common.RequestType;
 
 public interface Configuration {
 

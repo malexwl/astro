@@ -1,7 +1,7 @@
 package com.atom.builders;
 
 import com.atom.bean.Pair;
-import com.atom.bean.RequestType;
+import com.atom.common.RequestType;
 import com.atom.common.Helper;
 import com.atom.common.NameConstants;
 import com.atom.common.RcConstants;

@@ -1,4 +1,4 @@
-package com.atom.bean;
+package com.atom.common;
 
 /**
  * Created by atom on 14.11.16.
