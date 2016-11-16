@@ -3,6 +3,7 @@ package com.atom.common;
 import com.atom.bean.Pair;
 
 import java.util.Date;
+import java.util.List;
 
 public class Helper {
     private Helper() {
@@ -15,8 +16,8 @@ public class Helper {
 
     public static String generateUrl(String startUrl, Pair... params) {
         String result = startUrl;
-        if (isEmpty(params)) {
-            StringBuilder sb = new StringBuilder(startUrl);
+        if (isNotEmpty(params)) {
+            StringBuilder sb = new StringBuilder(result);
             boolean first = true;
             for (Pair param : params) {
                 if (first) {
@@ -34,11 +35,28 @@ public class Helper {
         return result;
     }
 
+    public static String generateUrl(String startUrl, List<Pair> params) {
+        Pair[] paramsArray = null;
+        if (isNotEmpty(params)) {
+            paramsArray = new Pair[params.size()];
+            paramsArray = params.toArray(paramsArray);
+        }
+        return generateUrl(startUrl, paramsArray);
+    }
+
     public static boolean isEmpty(Object[] data) {
         return data == null || data.length == 0;
     }
 
     public static boolean isNotEmpty(Object[] data) {
+        return !isEmpty(data);
+    }
+
+    public static boolean isEmpty(List data) {
+        return data == null || data.size() == 0;
+    }
+
+    public static boolean isNotEmpty(List data) {
         return !isEmpty(data);
     }
 }
