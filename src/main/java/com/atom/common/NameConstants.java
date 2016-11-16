@@ -16,6 +16,8 @@ public class NameConstants {
     public static final String P_KEY = "key";
     public static final String P_VERSION = "version";
     public static final String P_LANG = "lang";
+    public static final String P_AREA_ID = "area_id";
+    public static final String P_R_ID = "r_id";
     public static final String P_AND = "&";
     public static final String P_EQUALS = "=";
     public static final String P_QUESTION = "?";

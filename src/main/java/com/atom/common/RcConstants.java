@@ -5,6 +5,8 @@ public class RcConstants {
     public static final String STATUS = "A01200";
     public static final String START = "A01120";
     public static final String READ = "A11300";
+
+    //War
     public static final String WAR = "A07010";
     public static final String REFRESH = "A07200";
     public static final String WAR_SELECT = "A07000";

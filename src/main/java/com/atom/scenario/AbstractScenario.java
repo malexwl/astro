@@ -41,6 +41,9 @@ public abstract class AbstractScenario implements Scenario{
         }
     }
 
+    /*
+    Return to main view
+     */
     public void doStatusRequest() {
         String url = requestBuilder.buildRequest(RequestType.STATUS);
         NetworkHelper.sendGetRequest(url);

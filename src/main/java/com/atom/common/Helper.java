@@ -2,6 +2,7 @@ package com.atom.common;
 
 import com.atom.bean.Pair;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class Helper {
         return time + StringUtils.EMPTY;
     }
 
-    public static String generateUrl(String startUrl, Pair... params) {
+    public static String generateUrl(String startUrl, List<Pair> params) {
         String result = startUrl;
         if (isNotEmpty(params)) {
             StringBuilder sb = new StringBuilder(result);
@@ -33,15 +34,6 @@ public class Helper {
             result = sb.toString();
         }
         return result;
-    }
-
-    public static String generateUrl(String startUrl, List<Pair> params) {
-        Pair[] paramsArray = null;
-        if (isNotEmpty(params)) {
-            paramsArray = new Pair[params.size()];
-            paramsArray = params.toArray(paramsArray);
-        }
-        return generateUrl(startUrl, paramsArray);
     }
 
     public static boolean isEmpty(Object[] data) {

@@ -8,6 +8,9 @@ import com.atom.common.RcConstants;
 import com.atom.common.StringUtils;
 import com.atom.interfaces.Configuration;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RequestBuilder {
 
     private final Configuration configuration;
@@ -20,11 +23,17 @@ public class RequestBuilder {
         Pair rcUrlPair = getRcUrlPair(type);
         String rc = rcUrlPair.getKey();
         String url = rcUrlPair.getVal().toString();
-        Pair[] params;
+        List<Pair> params;
 
         switch (type) {
             case READ:
-                params = buildReadParams(rc);
+                params = buildCommonParams(rc, getLangPair());
+                break;
+            case ADVENTURE_SELECT:
+                params = buildCommonParams(rc, getAreaIdPair());
+                break;
+            case ADVENTURE_ATTACK:
+                params = buildCommonParams(rc, getRIdPair());
                 break;
             default:
                 params = buildCommonParams(rc);
@@ -33,25 +42,20 @@ public class RequestBuilder {
         return Helper.generateUrl(url, params);
     }
 
-    private Pair[] buildReadParams(String rc) {
-        return new Pair[]{
-                getEidPair(),
-                getLangPair(),
-                getRcPair(rc),
-                getKeyPair(),
-                getVersionPair(),
-                getTimePair()
-        };
-    }
+    private List<Pair> buildCommonParams(final String rc, Pair... additionalParameters) {
+        List<Pair> pairs = new ArrayList<Pair>();
+        pairs.add(getEidPair());
+        pairs.add(getRcPair(rc));
+        pairs.add(getKeyPair());
+        pairs.add(getVersionPair());
+        pairs.add(getTimePair());
 
-    private Pair[] buildCommonParams(String rc) {
-        return new Pair[]{
-                getEidPair(),
-                getRcPair(rc),
-                getKeyPair(),
-                getVersionPair(),
-                getTimePair()
-        };
+        if (Helper.isNotEmpty(additionalParameters)) {
+            for (Pair param : additionalParameters) {
+                pairs.add(param);
+            }
+        }
+        return pairs;
     }
 
     private Pair getVersionPair() {
@@ -98,6 +102,26 @@ public class RequestBuilder {
                 rc = RcConstants.WAR_SELECT;
                 url = Configuration.URL_SELECT_WAR;
                 break;
+            case ADVENTURE_STATUS:
+                rc = RcConstants.ADVENTURE_STATUS;
+                url = Configuration.URL_ADVENTURE_STATUS;
+                break;
+            case ADVENTURE_SELECT:
+                rc = RcConstants.ADVENTURE_SELECT;
+                url = Configuration.URL_ADVENTURE_SELECT;
+                break;
+            case ADVENTURE_FORMATION_INFO:
+                rc = RcConstants.ADVENTURE_FORMATION_INFO;
+                url = Configuration.URL_ADVENTURE_FORMATION_INFO;
+                break;
+            case ADVENTURE_ATTACK:
+                rc = RcConstants.ADVENTURE_ATTACK;
+                url = Configuration.URL_ADVENTURE_ATTACK;
+                break;
+            case ADVENTURE_REWARD:
+                rc = RcConstants.ADVENTURE_REWARD;
+                url = Configuration.URL_ADVENTURE_REWARD;
+                break;
             default:
                 rc = StringUtils.EMPTY;
                 url = StringUtils.EMPTY;
@@ -115,5 +139,13 @@ public class RequestBuilder {
 
     private Pair getLangPair() {
         return new Pair(NameConstants.P_LANG, Configuration.TEST_LANG_NUMBER);
+    }
+
+    private Pair getAreaIdPair() {
+        return new Pair(NameConstants.P_AREA_ID, Configuration.TEST_AREA_ID);
+    }
+
+    private Pair getRIdPair() {
+        return new Pair(NameConstants.P_R_ID, Configuration.TEST_R_ID);
     }
 }
