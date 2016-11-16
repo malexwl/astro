@@ -3,9 +3,6 @@ package com.atom.scenario;
 import com.atom.common.NetworkHelper;
 import com.atom.common.RequestType;
 
-/**
- * Created by atom on 16.11.16.
- */
 public class ScenarioWar extends AbstractScenario {
     public void doScenario() {
         doWarRequest();

@@ -1,15 +1,15 @@
 package com.atom.builders;
 
 import com.atom.bean.Pair;
-import com.atom.bean.json.login.LoginResponse;
-import com.atom.common.RequestType;
 import com.atom.common.Helper;
 import com.atom.common.NameConstants;
 import com.atom.common.RcConstants;
+import com.atom.common.RequestType;
 import com.atom.common.StringUtils;
 import com.atom.interfaces.Configuration;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class RequestBuilder {
@@ -62,9 +62,7 @@ public class RequestBuilder {
         pairs.add(getTimePair());
 
         if (Helper.isNotEmpty(additionalParameters)) {
-            for (Pair param : additionalParameters) {
-                pairs.add(param);
-            }
+            Collections.addAll(pairs, additionalParameters);
         }
         return pairs;
     }
