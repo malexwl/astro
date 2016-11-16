@@ -1,6 +1,7 @@
 package com.atom.builders;
 
 import com.atom.bean.Pair;
+import com.atom.bean.json.login.LoginResponse;
 import com.atom.common.RequestType;
 import com.atom.common.Helper;
 import com.atom.common.NameConstants;
@@ -19,7 +20,7 @@ public class RequestBuilder {
         this.configuration = configuration;
     }
 
-    public String buildRequest(RequestType type) {
+    public String buildRequest(RequestType type, Pair... data) {
         Pair rcUrlPair = getRcUrlPair(type);
         String rc = rcUrlPair.getKey();
         String url = rcUrlPair.getVal().toString();
@@ -35,6 +36,16 @@ public class RequestBuilder {
             case ADVENTURE_ATTACK:
                 params = buildCommonParams(rc, getRIdPair());
                 break;
+            case WAR_SELECT_USER: {
+                Integer tid = getValueByKey(NameConstants.P_TID, Integer.class, data);
+                params = buildCommonParams(rc, getTidPair(tid));
+                break;
+            }
+            case WAR_ATTACK: {
+                Integer tid = getValueByKey(NameConstants.P_TID, Integer.class, data);
+                params = buildCommonParams(rc, getTidPair(tid), getTpidPair());
+                break;
+            }
             default:
                 params = buildCommonParams(rc);
         }
@@ -56,6 +67,19 @@ public class RequestBuilder {
             }
         }
         return pairs;
+    }
+
+    private <T> T getValueByKey(String key, Class<T> type, Pair... data) {
+        T result = null;
+        if (Helper.isNotEmpty(data) && StringUtils.isNotEmpty(key)) {
+            for (Pair pair : data) {
+                if (key.equals(pair.getKey())) {
+                    result = (T) pair.getVal();
+                    break;
+                }
+            }
+        }
+        return result;
     }
 
     private Pair getVersionPair() {
@@ -94,13 +118,17 @@ public class RequestBuilder {
                 rc = RcConstants.WAR;
                 url = Configuration.URL_WAR;
                 break;
-            case REFRESH_WAR:
-                rc = RcConstants.REFRESH;
-                url = Configuration.URL_REFRESH;
+            case WAR_GET_USERS:
+                rc = RcConstants.WAR_GET_USERS;
+                url = Configuration.URL_WAR_GET_USERS;
                 break;
-            case SELECT_WAR:
-                rc = RcConstants.WAR_SELECT;
-                url = Configuration.URL_SELECT_WAR;
+            case WAR_SELECT_USER:
+                rc = RcConstants.WAR_SELECT_USER;
+                url = Configuration.URL_WAR_SELECT_USER;
+                break;
+            case WAR_ATTACK:
+                rc = RcConstants.WAR_ATTACK;
+                url = Configuration.URL_WAR_ATTACK;
                 break;
             case ADVENTURE_STATUS:
                 rc = RcConstants.ADVENTURE_STATUS;
@@ -147,5 +175,13 @@ public class RequestBuilder {
 
     private Pair getRIdPair() {
         return new Pair(NameConstants.P_R_ID, Configuration.TEST_R_ID);
+    }
+
+    private Pair getTidPair(int tid) {
+        return new Pair(NameConstants.P_TID, tid);
+    }
+
+    private Pair getTpidPair() {
+        return new Pair(NameConstants.P_TPID, Configuration.TEST_TPID);
     }
 }

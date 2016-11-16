@@ -15,7 +15,9 @@ public interface Configuration {
     short TEST_VERSION = 2500;
     short TEST_AREA_ID = 109;
     short TEST_R_ID = 1;
+    short TEST_TPID = -1;
 
+    //Login
     String URL_LOGIN = "http://login.beginning.astronest.com/ck2glo_php/_login_lib/_login_ggl.php";
     //    http://game1.beginning.astronest.com/ck2glo_php/_content/empire_status.php?eid=323707&rc=A01200&key=6482310&version=2500&time_xxx=1479138343
     String URL_STATUS = "http://game1.beginning.astronest.com/ck2glo_php/_content/empire_status.php";
@@ -23,12 +25,7 @@ public interface Configuration {
     String URL_START = "http://game1.beginning.astronest.com/ck2glo_php/_content/empire_start.php";
     //    http://game1.beginning.astronest.com/ck2glo_php/_content/notice_read.php?eid=323707&lang=3&rc=A11300&key=6482310&version=2500&time_xxx=1479138346
     String URL_READ = "http://game1.beginning.astronest.com/ck2glo_php/_content/notice_read.php";
-    //    http://game1.beginning.astronest.com/ck2glo_php/_content/racewar_info.php?eid=323707&rc=A07010&key=3887&version=2500&time_xxx=1479138579
-    String URL_WAR = "http://game1.beginning.astronest.com/ck2glo_php/_content/racewar_info.php";
-    //    http://game1.beginning.astronest.com/ck2glo_php/_content/recomm_list.php?eid=323707&rc=A07200&key=3887&version=2500&time_xxx=1479138585
-    String URL_REFRESH = "http://game1.beginning.astronest.com/ck2glo_php/_content/recomm_list.php";
-    //    http://game1.beginning.astronest.com/ck2glo_php//_content/war_info2.php?eid=323707&tid=131989&rc=A07000&key=3887&version=2500&time_xxx=1479138593
-    String URL_SELECT_WAR = "http://game1.beginning.astronest.com/ck2glo_php//_content/war_info2.php";
+
 
 //Campaign
 //    http://game1.beginning.astronest.com/ck2glo_php/_content//adventure_status.php?eid=323707&rc=A17000&key=9345534&version=2500&time_xxx=1479243132
@@ -41,6 +38,16 @@ String URL_ADVENTURE_FORMATION_INFO = "http://game1.beginning.astronest.com/ck2g
 String URL_ADVENTURE_ATTACK = "http://game1.beginning.astronest.com/ck2glo_php/_content//adventure_end.php";
     //    http://game1.beginning.astronest.com/ck2glo_php//_content/adventure_reward.php?eid=323707&r_id=1&rc=A17003&key=9345534&version=2500&time_xxx=1479243121
 String URL_ADVENTURE_REWARD = "http://game1.beginning.astronest.com/ck2glo_php//_content/adventure_reward.php";
+
+    //War
+//    http://game1.beginning.astronest.com/ck2glo_php/_content/racewar_info.php?eid=323707&rc=A07010&key=4738532&version=2500&time_xxx=1479323747
+    String URL_WAR = "http://game1.beginning.astronest.com/ck2glo_php/_content/racewar_info.php";
+//    http://game1.beginning.astronest.com/ck2glo_php/_content/recomm_list.php?eid=323707&rc=A07200&key=4738532&version=2500&time_xxx=1479323771
+String URL_WAR_GET_USERS = "http://game1.beginning.astronest.com/ck2glo_php/_content/recomm_list.php";
+//    http://game1.beginning.astronest.com/ck2glo_php//_content/war_info2.php?eid=323707&tid=50373&rc=A07000&key=4738532&version=2500&time_xxx=1479323782
+String URL_WAR_SELECT_USER = "http://game1.beginning.astronest.com/ck2glo_php//_content/war_info2.php";
+//    http://game1.beginning.astronest.com/ck2glo_php//_content/war_process.php?eid=323707&tid=50373&tpid=-1&rc=A07100&key=4738532&version=2500&time_xxx=1479323795
+    String URL_WAR_ATTACK = "http://game1.beginning.astronest.com/ck2glo_php//_content/war_process.php";
 
     boolean isWarScenario();
 
